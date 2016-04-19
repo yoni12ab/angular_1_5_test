@@ -3,19 +3,19 @@
 require('angular')
 require('./services.js');
 
-angular.module('app', [])
-.controller('MainController', ['$scope', 'services',function ($scope, services) {
-    $scope.message = "sdfsdf";
+angular.module('app', ['app.services'])
+.controller('MainController', ['$scope', 'servicesFactory',function ($scope, servicesFactory) {
+    $scope.message = servicesFactory.message1;
 }]);
-}).call(this,require("qC859L"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_21b3ed44.js","/")
+}).call(this,require("qC859L"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_2616a248.js","/")
 },{"./services.js":2,"angular":4,"buffer":6,"qC859L":8}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
-﻿angular.module('app',[])
-.factory('services', function ($rootScope) {
+angular.module('app.services',[])
+.factory('servicesFactory', function ($rootScope) {
  
     var ret = {};
     // factory function body that constructs shinyNewServiceInstance
-    ret.message1 = "sssssss"
+    ret.message1 = "Service 1"
     return ret;
 });
 }).call(this,require("qC859L"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/services.js","/")
