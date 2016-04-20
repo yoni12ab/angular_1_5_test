@@ -58,7 +58,7 @@ angular.module('app', ['ui.router','ngMaterial','app.services','app.components']
 		}
 	});
 });
-}).call(this,require("qC859L"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_64599f89.js","/")
+}).call(this,require("qC859L"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_f78cf3f4.js","/")
 },{"./components/about/about.js":1,"./components/home/home.js":2,"./services.js":4,"angular":13,"angular-animate":6,"angular-aria":8,"angular-material":10,"angular-ui-router":11,"buffer":15,"qC859L":17}],4:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 angular.module('app.services',[])

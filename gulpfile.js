@@ -32,9 +32,9 @@ var open = require('gulp-open');
  
 
 gulp.task('connect', function () {
-    connect.server({
+    connect.server({ 
          livereload: true,
-        root: 'public',
+       // root: '/',
         port: 4000
     });
     var browser = os.platform() === 'linux' ? 'google-chrome' : (
