@@ -21,13 +21,29 @@ var jshint = require('gulp-jshint');
 var mochaPhantomjs = require('gulp-mocha-phantomjs');
 
 //local server
-var connect = require('gulp-connect')
+var connect = require('gulp-connect');
+var open = require('gulp-open');
+ var os = require('os');
+ 
+// Default usage: 
+// Open one file with default application 
+
+
+ 
 
 gulp.task('connect', function () {
     connect.server({
+         livereload: true,
         root: 'public',
         port: 4000
-    })
+    });
+    var browser = os.platform() === 'linux' ? 'google-chrome' : (
+  os.platform() === 'darwin' ? 'google chrome' : (
+  os.platform() === 'win32' ? 'chrome' : 'firefox'));
+    
+    /*
+    gulp.src('./public/index.html')
+    .pipe(open({app:browser}));*/
 })
 
 //JSHint
@@ -58,7 +74,9 @@ gulp.task('browserify-client', ['lint-client'], function () {
       }))
       .pipe(rename('surf-index.js'))
       .pipe(gulp.dest('build'))
-      .pipe(gulp.dest('public/javascripts'));
+      .pipe(gulp.dest('public/javascripts'))
+      .pipe(connect.reload())
+      ;
 });
 
 gulp.task('browserify-test', ['lint-test'], function () {
@@ -67,12 +85,15 @@ gulp.task('browserify-test', ['lint-test'], function () {
           insertGlobals: true
       }))
       .pipe(rename('client-test.js'))
-      .pipe(gulp.dest('build'));
+      .pipe(gulp.dest('build'))
+      ;
 });
 
 gulp.task('watch', function () {
+ 
     gulp.watch('app/**/*.js', ['browserify-client']);
     gulp.watch('test/client/**/*.js', ['browserify-test']);
+    gulp.watch('app/**/*.scss', ['styles']);
 });
 
 
@@ -82,6 +103,7 @@ gulp.task('test', ['lint-test', 'browserify-test'], function () {
 });
 
 gulp.task('watch', function () {
+   
     gulp.watch('app/**/*.js', ['browserify-client', 'test']);
     gulp.watch('test/client/**/*.js', ['test']);
 });
@@ -92,7 +114,9 @@ gulp.task('styles', function () {
       .pipe(prefix({ cascade: true }))
       .pipe(rename('surf-index.css'))
       .pipe(gulp.dest('build'))
-      .pipe(gulp.dest('public/stylesheets'));
+      .pipe(gulp.dest('public/stylesheets'))
+      .pipe(connect.reload())
+        ;
 });
 
 gulp.task('minify', ['styles'], function () {
@@ -113,4 +137,4 @@ gulp.task('build', ['uglify', 'minify']);
 
 
 
-gulp.task('default', ['test', 'build', 'watch', 'connect']);
+gulp.task('default', [/*'test',*/ 'build', 'watch', 'connect']);
