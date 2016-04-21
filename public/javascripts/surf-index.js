@@ -10,10 +10,11 @@ angular.module('app.about', [])
 
 var appHome = angular.module('app.home', []);
 require("./homeHelper.js");
-appHome.controller('homeCtrl',['homeHelper',function(homeHelper){
+appHome.controller('homeCtrl',['homeHelper','$scope',function(homeHelper,$scope){
 	this.welcomeText = 'Welcome to myApp Home 1 2!';
-	this.movies ;
-	this.page=1;
+	$scope.movies ;
+	$scope.justUpdate = 1;
+	this.page=1; 
 	this.take=10;
 	this.getMovies = function () {
 		if(this.page < 1){
@@ -23,8 +24,10 @@ appHome.controller('homeCtrl',['homeHelper',function(homeHelper){
 		var skip = this.page * (this.page -1);
 		
 		homeHelper.getMovies(skip,this.take).then(function (data) {
-			console.log("movies",data);
-			this.movies =data.data;
+			console.log("movies",data.data);
+			
+			$scope.movies =data.data;
+			$scope.justUpdate = 2;
 		});
 	}
 	this.init = function () {
@@ -35,6 +38,37 @@ appHome.controller('homeCtrl',['homeHelper',function(homeHelper){
 	}
 
 	this.init();
+	
+	 this.infiniteItems = {
+          numLoaded_: 0,
+          toLoad_: 0,
+          // Required.
+          getItemAtIndex: function(index) {
+			  debugger
+            if (index > this.numLoaded_) {
+              this.fetchMoreItems_(index);
+              return null;
+            }
+            return index;
+          },
+          // Required.
+          // For infinite scroll behavior, we always return a slightly higher
+          // number than the previously loaded items.
+          getLength: function() {
+			  debugger
+            return this.numLoaded_ + 5;
+          },
+          fetchMoreItems_: function(index) {
+            // For demo purposes, we simulate loading more items with a timed
+            // promise. In real code, this function would likely contain an
+            // $http request.
+			debugger;
+            this.page = index;
+			this.getMovies();
+          }
+        };
+	
+	
 	
 }]);
 }).call(this,require("qC859L"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/components\\home\\home.js","/components\\home")
@@ -98,7 +132,7 @@ angular.module('app', ['ui.router','ngMaterial','app.services','app.home','app.a
 		}
 	});
 });
-}).call(this,require("qC859L"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_94933e7b.js","/")
+}).call(this,require("qC859L"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_306c5b49.js","/")
 },{"./components/about/about.js":1,"./components/home/home.js":2,"./services.js":5,"./shared/header/headerDirective.js":6,"./shared/sideBar/sideBar.js":7,"angular":17,"angular-animate":10,"angular-aria":12,"angular-material":14,"angular-ui-router":15,"buffer":19,"qC859L":21}],5:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 angular.module('app.services',[])
