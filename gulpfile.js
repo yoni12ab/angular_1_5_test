@@ -89,24 +89,24 @@ gulp.task('browserify-test', ['lint-test'], function () {
       ;
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', function () { 
  
     gulp.watch('app/**/*.js', ['browserify-client']);
     gulp.watch('test/client/**/*.js', ['browserify-test']);
     gulp.watch('app/**/*.scss', ['styles']);
+    gulp.watch('app/**/*.html', ['reload-page']);
 });
 
+
+gulp.task('reload-page', function () {
+    connect.reload();
+});
 
 gulp.task('test', ['lint-test', 'browserify-test'], function () {
     return gulp.src('test/client/index.html')
       .pipe(mochaPhantomjs());
 });
 
-gulp.task('watch', function () {
-   
-    gulp.watch('app/**/*.js', ['browserify-client', 'test']);
-    gulp.watch('test/client/**/*.js', ['test']);
-});
 
 gulp.task('styles', function () {
     return gulp.src('app/shared/sass/index.scss')

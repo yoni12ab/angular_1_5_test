@@ -1,0 +1,14 @@
+<!-- The top toolbar -->
+<div ng-controller="sideBarCtrl as sideNav" >
+	
+		  <md-list>
+			<md-list-item ng-repeat="item in sideNav.barLinks">
+				<md-button aria-label="button-label" class="md-mini|md-fab">
+				   <md-icon md-svg-src="{{item.image}}"></md-icon>
+				  {{item.name}}  
+				
+				</md-button>
+			   
+			</md-list-item> 
+		  </md-list>
+</div> 

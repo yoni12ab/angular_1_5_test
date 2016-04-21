@@ -1,4 +1,15 @@
-<div ui-view='header'></div>
-<div ng-controller="homeCtrl as home">
-	<h1 ng-bind="home.welcomeText"></h1>
-</div>
+	<div ng-controller="homeCtrl as home">
+		<h1 ng-bind="home.welcomeText"></h1>
+		<md-list>
+		  <md-list-item class="md-3-line" ng-repeat="item in home.movies">
+			<img  ng-src="{{item.Thumb}}" />
+			<div class="md-list-item-text">
+				<h3>{{item.Title}}</h3>
+				<p>{{item.Description}}</p>
+				
+			</div>
+		  </md-list-item>
+		</md-list>
+		{{home.movies}}
+		
+	</div>
