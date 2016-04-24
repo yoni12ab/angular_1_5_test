@@ -1,39 +1,58 @@
 	<style>
-		.virtualRepeatdemoInfiniteScroll #vertical-container {
-  height: 292px;
-  width: 100%;
-  max-width: 400px; }
-.virtualRepeatdemoInfiniteScroll .repeated-item {
-  border-bottom: 1px solid #ddd;
-  box-sizing: border-box;
-  height: 40px;
-  padding-top: 10px; }
-.virtualRepeatdemoInfiniteScroll md-content {
-  margin: 16px; }
-.virtualRepeatdemoInfiniteScroll md-virtual-repeat-container {
-  border: solid 1px grey; }
-.virtualRepeatdemoInfiniteScroll .md-virtual-repeat-container .md-virtual-repeat-offsetter div {
-  padding-left: 16px; }
+		.videoList md-list-item .md-avatar,
+		.videoList md-list-item img{
+			width:80px;
+			height: 80px;
+			
+		}
 		
+		.videoList md-virtual-repeat-container {
+			
+			height: 60vh;
+			
+		}
+		.videoList .repeated-item button{
+			border-bottom: 1px solid #ddd;
+			box-sizing: border-box;
+			height: 100px;
+			
+			overflow: hidden;
+			
+			 } 
+		.videoList md-list-item .md-list-item-text{
+			padding:  10px 0; 
+			box-sizing: border-box;
+			height: 100px;
+			
+			overflow: hidden;
+			
+		}	
+		
+		 
 	</style>
 	
-	<div ng-controller="homeCtrl as home">
-		<h1 ng-bind="home.welcomeText"></h1>
-		
-			 
-		<md-list>
+	<md-content layout-padding ng-controller="homeCtrl as home"  >
+		<h2 ng-bind="home.welcomeText"></h2>
+		<div class="videoList">
 			 <md-virtual-repeat-container id="vertical-container">
-				<md-list-item class="md-2-line" ng-repeat="item in movies">
-					<img class="md-avatar" ng-src="{{item.Thumb}}" />
-					<div class="md-list-item-text">
-						<h3>{{item.Title}}</h3>
-						<p>{{item.Description}}</p>
-						
-					</div>
-				</md-list-item>
+					<md-list  > 
+							<md-list-item flex 
+							class="md-2-line repeated-item md-raised md-warn" 
+							md-on-demand  
+							md-virtual-repeat="item in home.infiniteItems" 
+							 ng-click="home.showDialog($event,item)"
+							>
+								
+								<img class="md-avatar " ng-src="{{item.Thumb}}" />
+								<div class="md-list-item-text">
+									<h3>{{item.Title}}</h3>
+									<p ng-bind-html="item.Description" ></p>
+									
+								</div>
+							</md-list-item> 
+					</md-list>
 			</md-virtual-repeat-container>
-		</md-list>
+		</div>
 		
-		{{home.movies}}
 		
-	</div>
+	</md-content>

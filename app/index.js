@@ -1,5 +1,6 @@
 require('angular')
 require('angular-ui-router');
+require('angular-sanitize');
 require('angular-aria');
 require('angular-animate');
 require('angular-material');
@@ -9,7 +10,7 @@ require('./shared/header/headerDirective.js');
 require('./components/home/home.js');
 require('./components/about/about.js');
 
-angular.module('app', ['ui.router','ngMaterial','app.services','app.home','app.about','app.header','app.sideBar'])
+angular.module('app', ['ui.router','ngMaterial','ngSanitize','app.services','app.home','app.about','app.header','app.sideBar'])
 /*
 .controller('MainController', ['$scope', 'servicesFactory',function ($scope, servicesFactory) {
     $scope.message = servicesFactory.message1;
