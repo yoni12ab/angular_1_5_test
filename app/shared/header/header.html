@@ -1,15 +1,21 @@
 <!-- The top toolbar -->
-<md-toolbar class="md-primary"  layout="row" >
+<md-toolbar class="md-primary"  layout="row" ng-controller="headerController as headerCtrl" >
 	<div class="md-toolbar-tools" >
-
+		<md-button aria-label="menu" class="menu" hide-gt-sm ng-click="headerCtrl.openLeftMenu()" ><!--hide-gt-sm-->
+		   <md-icon> menu </md-icon> 
+		   
+		</md-button>
+		
+		
 		<h2>
-		<span>My App</span>
+		<span>Surf Index</span>
 		</h2>
+<!--		
 		<md-button ui-sref="home">
 			Home
 		</md-button>
 		<md-button ui-sref="about">
 			About
-		</md-button>
+		</md-button>-->
 	</div>
 </md-toolbar>

@@ -1,0 +1,18 @@
+@mixin prefix($property, $value, $vendors: webkit moz ms o) {
+      @if $vendors {
+        @each $vendor in $vendors {
+          #{"-" + $vendor + "-" + $property}: #{$value};
+        }
+      }
+      #{$property}: #{$value};
+}
+
+@mixin size($width, $height: $width) {
+      width: $width;
+      height: $height;
+}
+
+@mixin maxSize($width, $height: $width) {
+      max-width: $width;
+      max-height: $height;
+}

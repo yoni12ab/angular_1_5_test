@@ -1,8 +1,9 @@
-
+(function(){
 var appHome = angular.module('app.home', []);
 require("./homeHelper.js");
-appHome.controller('homeCtrl',['homeHelper','$scope','$mdDialog',
-						function(homeHelper,$scope,$mdDialog){
+appHome.controller('homeCtrl',['homeHelper','$scope','$mdDialog',homeController]);
+
+function homeController(homeHelper,$scope,$mdDialog){
 	var homeCtrl = this;
 	this.welcomeText = 'Welcome to myApp Home 1 2!';
 	//$scope.movies ;
@@ -11,15 +12,14 @@ appHome.controller('homeCtrl',['homeHelper','$scope','$mdDialog',
 	this.take=25;
 	
 	this.showDialog = function ($event,clickedItem) {
-      debugger
        $mdDialog.show({
          targetEvent: $event,
 		  title: clickedItem.Title,
          template:
-          '<md-dialog >' +
+          '<md-dialog class="md-dialog-fullscreen" >' +
             '<md-dialog-content>'+
 				//'<div ng-bind-html="clickedItem.Embed" >  </div> '+
-				clickedItem.Embed.replace("WIDTH","100%").replace("HEIGHT","100%") +	
+				clickedItem.Embed.replace("WIDTH","").replace("HEIGHT","") +	
 				 
 			'</md-dialog-content>' +
 			'  <md-dialog-actions>' +
@@ -112,4 +112,8 @@ appHome.controller('homeCtrl',['homeHelper','$scope','$mdDialog',
 	
 	
 	
-}]);
+}
+
+})();
+
+;

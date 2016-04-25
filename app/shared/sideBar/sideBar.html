@@ -3,8 +3,8 @@
 	
 		  <md-list>
 			<md-list-item ng-repeat="item in sideNav.barLinks">
-				<md-button aria-label="button-label" class="md-mini|md-fab">
-				   <md-icon md-svg-src="{{item.image}}"></md-icon>
+				<md-button aria-label="button-label" class="md-mini|md-fab" href="{{item.href}}" >
+				   <md-icon>{{item.image}}</md-icon>
 				  {{item.name}}  
 				
 				</md-button>

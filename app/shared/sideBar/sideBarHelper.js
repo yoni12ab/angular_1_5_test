@@ -4,24 +4,29 @@
     function sideBarHelperFunc() {
         this.getBarLinks =function (){ 
             return [{
-                        name : "link1" ,
-                        image : "app/img/spore-icon-svg.svg",
-                        href : ""
+                        name : "Home" ,
+                        image : "home",
+                        href : "/"
                     },
                     {
-                        name : "link2" ,
-                        image : "app/img/spore-icon-svg.svg",
-                        href : ""
+                        name : "TBD" ,
+                        image : "build",
+                        href : "/"
                     },
                     {
-                        name : "link3" ,
-                        image : "app/img/spore-icon-svg.svg",
-                        href : ""
+                        name : "TBD" ,
+                        image : "build",
+                        href : "/"
                     },
                     {
-                        name : "link4" ,
-                        image : "app/img/spore-icon-svg.svg",
-                        href : ""
+                        name : "TBD" ,
+                        image : "build",
+                        href : "/"
+                    },
+                    {
+                        name : "TBD" ,
+                        image : "build",
+                        href : "/"
                     },
                     
                    ];

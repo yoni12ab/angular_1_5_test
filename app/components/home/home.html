@@ -1,38 +1,5 @@
-	<style>
-		.videoList md-list-item .md-avatar,
-		.videoList md-list-item img{
-			width:80px;
-			height: 80px;
-			
-		}
-		
-		.videoList md-virtual-repeat-container {
-			
-			height: 60vh;
-			
-		}
-		.videoList .repeated-item button{
-			border-bottom: 1px solid #ddd;
-			box-sizing: border-box;
-			height: 100px;
-			
-			overflow: hidden;
-			
-			 } 
-		.videoList md-list-item .md-list-item-text{
-			padding:  10px 0; 
-			box-sizing: border-box;
-			height: 100px;
-			
-			overflow: hidden;
-			
-		}	
-		
-		 
-	</style>
-	
-	<md-content layout-padding ng-controller="homeCtrl as home"  >
-		<h2 ng-bind="home.welcomeText"></h2>
+	<div ng-controller="homeCtrl as home"  >
+		<h2 layout-padding ng-bind="home.welcomeText"></h2>
 		<div class="videoList">
 			 <md-virtual-repeat-container id="vertical-container">
 					<md-list  > 
@@ -55,4 +22,4 @@
 		</div>
 		
 		
-	</md-content>
+	</div>

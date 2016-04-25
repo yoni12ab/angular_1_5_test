@@ -1,11 +1,79 @@
-﻿$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
+﻿
+@import 'consts';
+@import 'position';
+@import 'mixin';
+
+
+
 body {
   font: 100% $font-stack;
   color: $primary-color; 
 //  background-color: blue;
 }  
 
+
+.full-screen{
+   @include maxSize(100%);
+   @include size(100%);
+    border-radius: 0;
+   
+}
+
+.md-dialog-fullscreen{
+   @extend .full-screen;
+    @include prefix(align-items,center);
+    @include prefix(justify-content,center);
+     @include prefix(display,flex);
+   
+  iframe{
+    height: 80vh;
+    width: 80vw;
+    margin: 0 auto;
+   @include prefix(flex,1);
+   @include prefix(box-flex,1,webkit);
+  }    
+} 
+
+
+
+.videoList{ 
+    md-virtual-repeat-container {
+			
+			height: 90vh;
+			
+		
+      .repeated-item button{
+        border-bottom: 1px solid #ddd;
+        box-sizing: border-box;
+        height: 100px;
+        
+        overflow: hidden;
+        
+        } 
+      md-list-item {
+          .md-list-item-text{
+              padding:  10px 0; 
+              box-sizing: border-box;
+              height: 100px;
+              
+              overflow: hidden;
+          }
+          .md-avatar,img{
+            width:80px;
+            height: 80px;
+            
+          }
+      }	
+    }
+
+}
+
+#content{
+  overflow: hidden;
+  
+}
+  
+  
 
 
 
