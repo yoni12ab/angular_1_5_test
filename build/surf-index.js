@@ -49,7 +49,7 @@ appHome.controller('homeCtrl',['homeHelper','$scope','$mdDialog',homeController]
 
 function homeController(homeHelper,$scope,$mdDialog){
 	var homeCtrl = this;
-	this.welcomeText = 'Welcome to myApp Home 1 2!';
+	this.welcomeText = 'Videos';
 	//$scope.movies ;
 	$scope.justUpdate = 1;
 	this.page=0; 
@@ -196,7 +196,7 @@ angular.module('app', ['ngMaterial','ngSanitize','app.router','app.services','ap
        .defaultIconSet('img/icons/sets/core-icons.svg', 24);
    });
 ;
-}).call(this,require("qC859L"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_c4b9793c.js","/")
+}).call(this,require("qC859L"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_2f2fc076.js","/")
 },{"./app.routes.js":1,"./components/about/about.js":2,"./components/home/home.js":3,"./services.js":6,"./shared/header/headerDirective.js":8,"./shared/sideBar/sideBar.js":9,"angular":21,"angular-animate":12,"angular-aria":14,"angular-material":16,"angular-sanitize":18,"angular-ui-router":19,"buffer":23,"qC859L":25}],6:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 angular.module('app.services',[])

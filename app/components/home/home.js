@@ -5,7 +5,7 @@ appHome.controller('homeCtrl',['homeHelper','$scope','$mdDialog',homeController]
 
 function homeController(homeHelper,$scope,$mdDialog){
 	var homeCtrl = this;
-	this.welcomeText = 'Welcome to myApp Home 1 2!';
+	this.welcomeText = 'Videos';
 	//$scope.movies ;
 	$scope.justUpdate = 1;
 	this.page=0; 
